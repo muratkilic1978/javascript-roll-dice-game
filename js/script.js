@@ -1,21 +1,21 @@
 //Game Score 
-var score = 100;
+let score = 100;
 
 //Generate random number for dice one two and three and write to DOM
 function rollDice() 
 {
-    var dice1 = document.getElementById("diceOne");
+    let dice1 = document.getElementById("diceOne");
     dice1.innerHTML = Math.floor(Math.random() * 6 )+ 1;
-    var dice2 = document.getElementById("diceTwo");
+    let dice2 = document.getElementById("diceTwo");
     dice2.innerHTML = Math.floor(Math.random() * 6 )+ 1;
-    var dice3 = document.getElementById("diceThree");
+    let dice3 = document.getElementById("diceThree");
     dice3.innerHTML = Math.floor(Math.random() * 6 )+ 1;
 }
 
 // Disable the button 
 function disableBtn()
 {
-    var button = document.getElementById("button");
+    let button = document.getElementById("button");
     button.disabled = true;
 }
 
@@ -36,16 +36,22 @@ function resetScore()
 function playGame() 
 {
     if (score !== 1) {
+        document.getElementById("message").textContent = "";
         rollDice();
         if (
+            
             (document.getElementById("diceOne").textContent) == (document.getElementById("diceTwo").textContent) 
             && 
             (document.getElementById("diceTwo").textContent) == (document.getElementById("diceThree").textContent)
            )
            {
                console.log("JackPOT XXX!!!");
-               score = score + 5;
+               score = score + 50;
                document.getElementById("score").textContent = score;
+               document.getElementById("message").style.color ="#dbaf18";
+               document.getElementById("message").style.fontSize ="2rem";
+               document.getElementById("message").style.fontWeight ="bolder";
+               document.getElementById("message").textContent = "JackPOT - 50 Points";
            } 
         else 
            {
